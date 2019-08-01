@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,6 +15,7 @@ public class ContactService implements IContactService {
     @Autowired
     private ContactRepo repo;
 
+    @Transactional
     @Override
     public void addContact(Contact contact) {
         Contact newOne = contact.builder()
@@ -27,17 +29,10 @@ public class ContactService implements IContactService {
     @Override
     public List<Contact> getAllContacts() {
         List<Contact> allContacts = repo.findAll();
-        return allContacts.stream()
-                .map(contact -> getContact(contact.getId()))
-                .collect(Collectors.toList());
+        return allContacts;
     }
 
-    @Override
-    public Contact getContact(Integer id) {
-        Contact contact = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("User doesn't exists"));
-        return contact;
-    }
+
 
 
 }

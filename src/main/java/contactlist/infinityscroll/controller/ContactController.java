@@ -1,7 +1,6 @@
 package contactlist.infinityscroll.controller;
 
 import contactlist.infinityscroll.model.Contact;
-import contactlist.infinityscroll.repo.ContactRepo;
 import contactlist.infinityscroll.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

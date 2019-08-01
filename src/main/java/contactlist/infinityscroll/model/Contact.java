@@ -12,12 +12,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "contacts")
 public class Contact {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "phone")
     private String phoneNumber;
 }

@@ -6,6 +6,7 @@ import contactlist.infinityscroll.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,20 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
+
     @GetMapping("/contacts")
-    public List<Contact> getContacts(){
+    public List<Contact> getContacts() {
         List<Contact> contactList = new ArrayList<>();
         contactService.getAllContacts().forEach(contactList::add);
-        return contactList ;
+        return contactList;
     }
 
+    @GetMapping(value = "/persons", params = {"page"})
+    public List<Contact> getContactsByPage(@RequestParam("page") int page) {
+        List<Contact> contactList = new ArrayList<>();
+        contactService.getContactsByPage(page).forEach(contactList::add);
+        return contactList;
+    }
 
 
 }

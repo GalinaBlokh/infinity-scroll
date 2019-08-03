@@ -37,7 +37,7 @@ public class ContactService implements IContactService {
 
     @Override
     public List<Contact> getContactsByPage(int page) {
-        Pageable pageable = PageRequest.of(page, 70);
+        Pageable pageable = PageRequest.of(page, 5);
         Page<Contact> contactPage = repo.findAll(pageable);
         return contactPage.getContent();
     }

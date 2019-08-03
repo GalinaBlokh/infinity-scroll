@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface IContactService {
 
-    List<Contact> getAllContacts();
-
     void addContact(Contact contact);
 
-    public List<Contact> getContactsByPage(int page);
+    List<Contact> getAllContacts();
+
+    List<Contact> getContactsByPage(int page);
 
 }

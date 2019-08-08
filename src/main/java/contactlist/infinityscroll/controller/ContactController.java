@@ -23,11 +23,6 @@ public class ContactController {
         return contactList;
     }
 
-//    @GetMapping(value = "/persons", params = {"page"})
-//    public List<Contact> getContactsByPage() {
-//        return getContactsByPage();
-//    }
-
     @GetMapping(value = "/contacts/", params = {"page"})
     public List<Contact> getContactsByPage(@RequestParam("page") int page) {
         List<Contact> contactList = new ArrayList<>();

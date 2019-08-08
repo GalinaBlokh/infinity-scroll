@@ -10,7 +10,7 @@ export class ContactHttpService {
   private url = 'api/contacts/?page=';
   constructor(private httpClient: HttpClient) { }
 
-  getContactByPage(page:number){
+  getContactsByPage(page:number){
     return this.httpClient.get<Contact[]>(this.url + page);
   }
 }

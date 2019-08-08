@@ -1,0 +1,9 @@
+.contact-viewport {
+  height: 240px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.contact-item {
+  height: 50px;
+}

@@ -6,7 +6,7 @@ import {Contact} from './model/Contact';
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+
 
 })
 
@@ -14,17 +14,28 @@ export class ContactComponent implements OnInit {
 
   private contacts: Contact[] = [];
   private page = 0;
+  direction = '';
 
   constructor(private ContactHttpServise: ContactHttpService) {
   }
 
   ngOnInit() {
-    this.ContactHttpServise.getContactsByPage(0).subscribe(value => this.contacts = value);
+    this.ContactHttpServise.getContactsByPage(0).subscribe(value => {
+      this.contacts = value;
+    });
   }
 
-  getContactByPage(page:number){
-    this.ContactHttpServise.getContactsByPage(page).subscribe(value =>{
-      value.forEach(value1 => {this.contacts.push(value1);});
+  getContactByPage(page: number) {
+    this.ContactHttpServise.getContactsByPage(page).subscribe(value => {
+      value.forEach(value1 => {
+        this.contacts.push(value1);
+      });
     });
- }
+  }
+
+  OnScroll() {
+    this.page = this.page + 1;
+    this.getContactByPage(this.page);
+    this.direction = 'down';
+  }
 }

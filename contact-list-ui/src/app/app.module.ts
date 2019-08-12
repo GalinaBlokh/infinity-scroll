@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from "./contact/contact.component";
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     ScrollingModule,
     MatButtonModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

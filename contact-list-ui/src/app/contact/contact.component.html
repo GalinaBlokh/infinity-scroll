@@ -1,3 +1,8 @@
-<cdk-virtual-scroll-viewport itemSize="50" class="contact-viewport">
-  <div *cdkVirtualFor="let contact of contacts" class="contact-item">{{contacts}}</div>
-</cdk-virtual-scroll-viewport>
+
+  <cdk-virtual-scroll-viewport  itemSize="40" (cdkObserveContent)="onScroll()" class="contact-viewport">
+    <div *cdkVirtualFor="let contact of contacts" class="contact-item">
+      <b>{{contact.name}}</b><br>
+      <a>{{contact.phoneNumber}}</a>
+    </div>
+  </cdk-virtual-scroll-viewport>
+

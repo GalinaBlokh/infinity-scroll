@@ -2,8 +2,11 @@
   height: 240px;
   width: 200px;
   border: 1px solid black;
+  overflow-y: scroll;
 }
 
 .contact-item {
   height: 50px;
+  margin: 5px;
+
 }

@@ -1,8 +1,11 @@
-
-  <cdk-virtual-scroll-viewport  itemSize="40" (cdkObserveContent)="onScroll()" class="contact-viewport">
-    <div *cdkVirtualFor="let contact of contacts" class="contact-item">
-      <b>{{contact.name}}</b><br>
-      <a>{{contact.phoneNumber}}</a>
-    </div>
-  </cdk-virtual-scroll-viewport>
+<div (scrolled)="onScroll()"
+     [infiniteScrollUpDistance]="4"
+     [infiniteScrollThrottle]="2"
+     [scrollWindow]="false"
+     class="contact-item" class="contact-viewport" infiniteScroll>
+  <div *ngFor="let contact of contacts" class="contact-item">
+    <b>{{contact.name}}</b><br>
+    <a>{{contact.phoneNumber}}</a>
+  </div>
+</div>
 

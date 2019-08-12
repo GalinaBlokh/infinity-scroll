@@ -18,8 +18,8 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactHttpService.getContactsByPage(this.page).subscribe(data=> this.contacts = data);
-    };
+    this.contactHttpService.getContactsByPage(this.page).subscribe(data => this.contacts = data);
+  };
 
   getContacts() {
     this.contactHttpService.getContactsByPage(this.page).subscribe(data => {
@@ -28,8 +28,8 @@ export class ContactComponent implements OnInit {
   }
 
   onScroll() {
-      this.page = this.page + 1;
-    this.getContacts()
+    this.page = this.page + 1;
+    this.getContacts();
   }
 
 }
